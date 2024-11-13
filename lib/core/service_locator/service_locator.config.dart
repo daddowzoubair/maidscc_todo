@@ -12,6 +12,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../features/authentication/data/data_sources/local/authentication_local_data_source.dart'
+    as _i289;
 import '../../features/authentication/data/data_sources/remote/authentication_remote_data_source.dart'
     as _i873;
 import '../../features/authentication/data/repositories/authentication_reporsitory_imp.dart'
@@ -45,9 +47,14 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i928.DioInterceptor>(() => _i928.DioInterceptor());
   gh.lazySingleton<_i873.AuthenticationRemoteDataSource>(
       () => _i873.AuthenticationRemoteDataSource(gh<_i462.ApiClient>()));
-  gh.lazySingleton<_i914.AuthenticationRepository>(() =>
-      _i1050.AuthenticationRepositoryImp(
-          gh<_i873.AuthenticationRemoteDataSource>()));
+  gh.lazySingleton<_i289.AuthenticationLocalDataSource>(() =>
+      _i289.AuthenticationLocalDataSource(
+          gh<_i979.SharedPreferencesStorage>()));
+  gh.lazySingleton<_i914.AuthenticationRepository>(
+      () => _i1050.AuthenticationRepositoryImp(
+            gh<_i873.AuthenticationRemoteDataSource>(),
+            gh<_i289.AuthenticationLocalDataSource>(),
+          ));
   gh.lazySingleton<_i979.SharedPreferencesStorage>(
       () => _i979.SharedPreferencesStorage(gh<_i460.SharedPreferences>()));
   return getIt;

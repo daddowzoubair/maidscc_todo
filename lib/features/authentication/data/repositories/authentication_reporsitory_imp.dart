@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:injectable/injectable.dart';
-import 'package:maidscc_todos/core/service_locator/service_locator.dart';
-import 'package:maidscc_todos/core/utils/shared_pref.dart';
 import 'package:maidscc_todos/features/authentication/data/entities/login/login_model.dart';
 import 'package:maidscc_todos/features/authentication/data/entities/user_info/user_info_model.dart';
 
+import '../data_sources/local/authentication_local_data_source.dart';
 import '../data_sources/remote/authentication_remote_data_source.dart';
 import 'authentication_repository.dart';
 
@@ -14,17 +13,19 @@ import 'authentication_repository.dart';
 class AuthenticationRepositoryImp extends AuthenticationRepository {
   AuthenticationRepositoryImp(
     this.authenticationRemoteDataSource,
+    this.authenticationLocalDataSource
   );
 
   final AuthenticationRemoteDataSource authenticationRemoteDataSource;
+  final AuthenticationLocalDataSource authenticationLocalDataSource;
 
   @override
   Future<LoginModel> login({required String userName, required String password}) async {
     final response = await authenticationRemoteDataSource.login(userName: userName, password: password);
 
     if(response.message.isEmpty && response.accessToken.isNotEmpty){
-      await getIt<SharedPreferencesStorage>().setAccessToken(response.accessToken);
-      await getIt<SharedPreferencesStorage>().setRefreshToken(response.refreshToken);
+      await authenticationLocalDataSource.setAccessToken(response.accessToken);
+      await authenticationLocalDataSource.setRefreshToken(response.refreshToken);
     }
     
     return response;
@@ -40,11 +41,11 @@ class AuthenticationRepositoryImp extends AuthenticationRepository {
   @override
   Future<LoginModel> refreshToken() async {
     
-    final response = await authenticationRemoteDataSource.refreshToken(refreshToken: getIt<SharedPreferencesStorage>().accessToken);
+    final response = await authenticationRemoteDataSource.refreshToken(refreshToken: authenticationLocalDataSource.accessToken);
 
     if(response.message.isEmpty && response.accessToken.isNotEmpty){
-      await getIt<SharedPreferencesStorage>().setAccessToken(response.accessToken);
-      await getIt<SharedPreferencesStorage>().setRefreshToken(response.refreshToken);
+      await authenticationLocalDataSource.setAccessToken(response.accessToken);
+      await authenticationLocalDataSource.setRefreshToken(response.refreshToken);
     }
     
     return response;
