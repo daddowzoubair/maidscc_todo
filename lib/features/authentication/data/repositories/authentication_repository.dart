@@ -1,5 +1,5 @@
-import 'package:maidscc_todos/features/authentication/data/entities/login/login_model.dart';
-import 'package:maidscc_todos/features/authentication/data/entities/user_info/user_info_model.dart';
+import '../entities/login/login_model.dart';
+import '../entities/user_info/user_info_model.dart';
 
 abstract class AuthenticationRepository {
   Future<LoginModel> login({required String userName , required String password});

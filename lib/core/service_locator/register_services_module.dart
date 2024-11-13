@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:maidscc_todos/core/network/clients/api_client.dart';
-import 'package:maidscc_todos/core/network/clients/dio_client.dart';
+import '../network/clients/api_client.dart';
+import '../network/clients/dio_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 

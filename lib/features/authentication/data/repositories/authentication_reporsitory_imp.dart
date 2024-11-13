@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:injectable/injectable.dart';
-import 'package:maidscc_todos/features/authentication/data/entities/login/login_model.dart';
-import 'package:maidscc_todos/features/authentication/data/entities/user_info/user_info_model.dart';
+import '../entities/login/login_model.dart';
+import '../entities/user_info/user_info_model.dart';
 
 import '../data_sources/local/authentication_local_data_source.dart';
 import '../data_sources/remote/authentication_remote_data_source.dart';

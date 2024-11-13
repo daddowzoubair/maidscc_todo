@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:maidscc_todos/constants/app_strings.dart';
-import 'package:maidscc_todos/features/authentication/data/entities/login/login_model.dart';
+import '../../../../../constants/app_strings.dart';
+import '../../entities/login/login_model.dart';
 
 import '../../../../../constants/app_api_config.dart';
 import '../../../../../core/network/clients/api_client.dart';

@@ -1,10 +1,11 @@
 
 import 'package:dio/dio.dart';
-import 'package:maidscc_todos/constants/app_api_config.dart';
-import 'package:maidscc_todos/core/service_locator/service_locator.dart';
-import 'package:maidscc_todos/core/utils/shared_pref.dart';
 
+
+import '../../../constants/app_api_config.dart';
 import '../../../features/authentication/data/repositories/authentication_repository.dart';
+import '../../service_locator/service_locator.dart';
+import '../../utils/shared_pref.dart';
 
 class DioClient {
   final Dio _dio;

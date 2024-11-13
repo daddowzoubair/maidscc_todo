@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:maidscc_todos/core/utils/shared_pref.dart';
+import '../../../../../core/utils/shared_pref.dart';
 
 @lazySingleton
 class AuthenticationLocalDataSource{
