@@ -33,9 +33,19 @@ class AuthenticationRepositoryImp extends AuthenticationRepository {
 
   @override
   Future<UserInfoModel> userInfo() async {
-    final response = await authenticationRemoteDataSource.userInfo();
+    if(authenticationLocalDataSource.userInfo.id > 0 ){
 
-    return response;
+      return authenticationLocalDataSource.userInfo;
+      
+    }else{
+      final response = await authenticationRemoteDataSource.userInfo();
+
+      if(response.message.isEmpty){
+        await authenticationLocalDataSource.setUserInfo(response);
+      }
+
+      return response;
+    }
   }
   
   @override
@@ -49,6 +59,11 @@ class AuthenticationRepositoryImp extends AuthenticationRepository {
     }
     
     return response;
+  }
+  
+  @override
+  bool hasToken() {
+    return authenticationLocalDataSource.accessToken.isNotEmpty;
   }
 
 

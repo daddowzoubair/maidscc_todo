@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants/app_strings.dart';
+import 'constants/app_themes.dart';
 import 'core/service_locator/service_locator.dart';
 import 'home.dart';
 
@@ -16,11 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: AppStrings.appTitle,
+      theme: AppThemes.lightTheme(context),
       home: const HomeScreen(),
     );
   }

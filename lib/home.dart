@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:maidscc_todos/core/utils/shared_pref.dart';
-import 'package:maidscc_todos/features/authentication/data/repositories/authentication_reporsitory_imp.dart';
-import 'package:maidscc_todos/features/authentication/data/repositories/authentication_repository.dart';
 
-import 'core/service_locator/service_locator.dart';
+import 'constants/app_dimensions.dart';
+import 'constants/app_strings.dart';
+import 'features/authentication/presentation/screens/authentication_screen.dart';
+import 'features/todos/presentation/screens/todo_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,35 +13,51 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
 
-  String message = 'hello';
+  late TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    //hide the keyboard when the tab index changed
+    tabController.addListener(() {
+      if(tabController.index != tabController.previousIndex){
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },);
+      }
+    },);
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(message),
-            const FlutterLogo(),
-            ElevatedButton(onPressed: ()async {
-              setState(() {
-                message = 'wait';
-              });
-
-             // final responce  = await getIt<AuthenticationRepository>().login(userName: 'emilys', password: 'emilyspass');
-
-              final userInfoResponce  = await getIt<AuthenticationRepository>().userInfo();
-
-              setState(() {
-                message = userInfoResponce.address.address;
-              });
-
-            }, child: const Text('Save Data'))
-          ],
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: SafeArea(
+        child: SizedBox(
+          height: AppDimensions.tabbarHeight,
+          child: TabBar(
+            padding: const EdgeInsets.all(AppDimensions.sixteenDimension),
+            controller: tabController,
+            tabs: const [
+            Tab(icon: Icon(CupertinoIcons.profile_circled),text: AppStrings.profile),
+            Tab(icon: Icon(CupertinoIcons.checkmark_alt_circle),text: AppStrings.todoList,),
+          ]),
         ),
+      ),
+      appBar: AppBar(
+        title: ListenableBuilder(listenable: tabController, builder: (context, child) => Text(tabController.index == 0 ? AppStrings.profile : AppStrings.todoList ),),
+      ),
+      body: TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: tabController,
+        children: const [
+          AuthenticationScreen(),
+          TodoListScreen()
+        ]
       ),
     );
   }

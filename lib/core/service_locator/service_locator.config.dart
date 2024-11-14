@@ -20,6 +20,8 @@ import '../../features/authentication/data/repositories/authentication_reporsito
     as _i1050;
 import '../../features/authentication/data/repositories/authentication_repository.dart'
     as _i914;
+import '../../features/authentication/presentation/controller/authentication_bloc.dart'
+    as _i949;
 import '../../features/todos/data/data_source/local/todos_local_data_source.dart'
     as _i969;
 import '../../features/todos/data/data_source/remote/todos_remote_data_source.dart'
@@ -52,15 +54,16 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i466.DioClient>(() => registerServicesModule.dioClient);
   gh.lazySingleton<_i462.ApiClient>(() => registerServicesModule.apiClient);
   gh.lazySingleton<_i928.DioInterceptor>(() => _i928.DioInterceptor());
-  gh.lazySingleton<_i873.AuthenticationRemoteDataSource>(
-      () => _i873.AuthenticationRemoteDataSource(gh<_i462.ApiClient>()));
+  gh.lazySingleton<_i949.AuthenticationBloc>(() => _i949.AuthenticationBloc());
   gh.lazySingleton<_i423.TodosRemoteDataSource>(
       () => _i423.TodosRemoteDataSource(gh<_i462.ApiClient>()));
+  gh.lazySingleton<_i873.AuthenticationRemoteDataSource>(
+      () => _i873.AuthenticationRemoteDataSource(gh<_i462.ApiClient>()));
+  gh.lazySingleton<_i969.TodosLocalDataSource>(
+      () => _i969.TodosLocalDataSource(gh<_i979.SharedPreferencesStorage>()));
   gh.lazySingleton<_i289.AuthenticationLocalDataSource>(() =>
       _i289.AuthenticationLocalDataSource(
           gh<_i979.SharedPreferencesStorage>()));
-  gh.lazySingleton<_i969.TodosLocalDataSource>(
-      () => _i969.TodosLocalDataSource(gh<_i979.SharedPreferencesStorage>()));
   gh.lazySingleton<_i564.TodosRepository>(() => _i653.TodosRepositoryImp(
         gh<_i423.TodosRemoteDataSource>(),
         gh<_i969.TodosLocalDataSource>(),
