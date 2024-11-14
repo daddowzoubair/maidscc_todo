@@ -8,6 +8,12 @@ abstract class AppApiConfig {
 
   static const userInfoApi = '/auth/me';
 
+  static const todoListApi = '/todos';
+
+  static const userTodoList = '/todos/user';
+
+  static const addTodo = '/todos/add';
+
   static const tokenExpiresInMins = 30;
 
   static const userNameLoginApiParameter = 'username';
@@ -18,5 +24,14 @@ abstract class AppApiConfig {
 
   static const expiresInMinsRefreshTokenParameter = 'expiresInMins';
 
+  static const todoListSkipParameter = 'skip';
+
+  static const todoListLimitParameter = 'limit';
+
+  static const addTodoTitleParameter = 'todo';
+
+  static const addTodoUserIdParameter = 'userId';
+
+  static const addTodoCompletedParameter = 'completed';
 
 }
