@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import '../../../../../core/utils/shared_pref.dart';
+import '../../entities/user_info/user_info_model.dart';
 
 @lazySingleton
 class AuthenticationLocalDataSource{
@@ -18,5 +19,12 @@ class AuthenticationLocalDataSource{
 
   Future<bool> setRefreshToken(String refreshToken) async {
     return localClient.setRefreshToken(refreshToken);
+  }
+
+
+  UserInfoModel get userInfo => localClient.userInfo;
+
+  Future<bool> setUserInfo(UserInfoModel userInfo) async {
+    return localClient.setUserInfo(userInfo);
   }
 }
