@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../constants/app_dimensions.dart';
-import '../../../../core/service_locator/service_locator.dart';
 import '../controller/authentication_bloc.dart';
 import '../controller/authentication_state.dart';
 import '../widgets/authentication_app_logo.dart';
@@ -14,9 +13,7 @@ class AuthenticationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => getIt<AuthenticationBloc>(),
-        child: Padding(
+    return Padding(
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensions.sixteenDimension),
           child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -45,6 +42,6 @@ class AuthenticationScreen extends StatelessWidget {
               );
             }
           }),
-        ));
+        );
   }
 }

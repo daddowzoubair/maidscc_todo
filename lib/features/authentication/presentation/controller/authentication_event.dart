@@ -22,3 +22,5 @@ class LoginEvent extends AuthenticationEvent {
 class FetchUserInfoEvent extends AuthenticationEvent {}
 
 class RefreshTokenEvent extends AuthenticationEvent {}
+
+class CheckTokenEvent extends AuthenticationEvent {}
