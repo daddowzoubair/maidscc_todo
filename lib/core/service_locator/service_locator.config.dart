@@ -29,6 +29,7 @@ import '../../features/todos/data/data_source/remote/todos_remote_data_source.da
 import '../../features/todos/data/repositories/authentication_reporsitory_imp.dart'
     as _i653;
 import '../../features/todos/data/repositories/todos_repository.dart' as _i564;
+import '../../features/todos/presentation/controller/todos_bloc.dart' as _i85;
 import '../network/clients/api_client.dart' as _i462;
 import '../network/clients/dio_client.dart' as _i466;
 import '../network/interceptors/dio_interceptor.dart' as _i928;
@@ -55,6 +56,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i462.ApiClient>(() => registerServicesModule.apiClient);
   gh.lazySingleton<_i928.DioInterceptor>(() => _i928.DioInterceptor());
   gh.lazySingleton<_i949.AuthenticationBloc>(() => _i949.AuthenticationBloc());
+  gh.lazySingleton<_i85.TodosBloc>(() => _i85.TodosBloc());
   gh.lazySingleton<_i423.TodosRemoteDataSource>(
       () => _i423.TodosRemoteDataSource(gh<_i462.ApiClient>()));
   gh.lazySingleton<_i873.AuthenticationRemoteDataSource>(

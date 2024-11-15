@@ -16,6 +16,9 @@ abstract class AppDimensions {
   static const tabbarHeight = 92.0;
   static const appbarHeight = 80.0;
 
+  static const leadingWidth = 120.0;
+
   static const textFormFieldHeight = 84.0;
+  static const longTextFormFieldHeight = 132.0;
 
 }

@@ -19,7 +19,7 @@ class TodoListModel with _$TodoListModel {
     factory TodoListModel.fromJson(Map<String, dynamic> json) => _$TodoListModelFromJson(json);
 }
 
-@freezed
+@Freezed(copyWith: true)
 class TodoModel with _$TodoModel {
     const factory TodoModel({
         @Default(0) int id,

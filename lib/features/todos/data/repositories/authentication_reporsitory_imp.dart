@@ -36,16 +36,16 @@ class TodosRepositoryImp extends TodosRepository {
   
   @override
   Future<TodoListModel> userTodoList({int skip = 0, int limit = 0, }) async {
-    //TODO user id
-    final response = await todosRemoteDataSource.userTodoList(userId: 1 , limit: limit , skip: skip  );
+    
+    final response = await todosRemoteDataSource.userTodoList(userId: todosLocalDataSource.userInfo.id , limit: limit , skip: skip  );
     
     return response;
   }
   
   @override
   Future<TodoModel> addTodo({required String todo , required bool isCompleted}) async {
-    //TODO user id
-    final response = await todosRemoteDataSource.addTodo(todo: todo, userId: 1, isCompleted: isCompleted);
+
+    final response = await todosRemoteDataSource.addTodo(todo: todo, userId: todosLocalDataSource.userInfo.id, isCompleted: isCompleted);
     
     return response;
   }
