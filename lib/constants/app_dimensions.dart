@@ -1,3 +1,4 @@
+// AppDimensions defines common dimension values (e.g., padding, height) used throughout the app for consistent layout.
 abstract class AppDimensions {
   static const zeroDimension = 0.0;
   static const twoDimension = 2.0;

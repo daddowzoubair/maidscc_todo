@@ -23,4 +23,5 @@ class FetchUserInfoEvent extends AuthenticationEvent {}
 
 class RefreshTokenEvent extends AuthenticationEvent {}
 
+// Check if the user is signed in or not
 class CheckTokenEvent extends AuthenticationEvent {}

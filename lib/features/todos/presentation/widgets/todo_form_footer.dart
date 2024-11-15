@@ -18,7 +18,7 @@ class TodoFormFooter extends StatelessWidget {
         listener: (context, state){
           if(state is AddTodoSuccess || state is UpdateTodoSuccess || state is DeleteTodoSuccess){
             Navigator.of(context).pop();
-            ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text('Changes applied successfully')), );
+            ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text(AppStrings.updatesSuccessfullyApplied)), );
           }
         },
         builder: (context, state) {

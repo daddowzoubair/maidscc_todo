@@ -1,3 +1,4 @@
+// AppRadius defines common border radius values used for rounded corners in the app.
 abstract class AppRadius {
   static const zeroRadius = 0.0;
   static const twoRadius = 2.0;

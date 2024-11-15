@@ -14,6 +14,7 @@ abstract class ConfirmDialog {
     final result = await showCupertinoDialog<bool>(
       context: context,
       builder: (BuildContext context) {
+        // use adaptive for both Material and Cupertino
         return AlertDialog.adaptive(
           title: Text(title),
           content: Text(message),

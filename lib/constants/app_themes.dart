@@ -6,6 +6,8 @@ import 'app_dimensions.dart';
 import 'app_fonts.dart';
 import 'app_radius.dart';
 
+// AppThemes defines the light theme for the app, including styles for colors, fonts, buttons, and input fields.
+// It helps maintain consistent UI design across the application.
 abstract class AppThemes {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
       primaryColor: AppColors.primaryColor,

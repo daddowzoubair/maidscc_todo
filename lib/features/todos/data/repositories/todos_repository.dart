@@ -2,6 +2,7 @@
 
 import '../entities/todo_list/todo_list_model.dart';
 
+// Todo repository interface
 abstract class TodosRepository {
   Future<TodoListModel> todoList({int skip = 0 , int limit = 0});
   Future<TodoModel> todoDetails({required int id});

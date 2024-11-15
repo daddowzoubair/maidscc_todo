@@ -52,6 +52,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
               bloc: getIt<AuthenticationBloc>(),
               builder: (context , state) {
                 return ElevatedButton(
+                  // set the button to disabled while the request is loading
                   onPressed: state is AuthenticationLoading ?  null : _sendRequest,
                   child: const Text(AppStrings.login),
                 );

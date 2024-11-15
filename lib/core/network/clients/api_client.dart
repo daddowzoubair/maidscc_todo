@@ -9,6 +9,7 @@ import '../../../features/todos/data/entities/todo_list/todo_list_model.dart';
 
 part 'api_client.g.dart';
 
+// Use Retrofit to generate these functions with Dio
 @RestApi()
 abstract class ApiClient{
 

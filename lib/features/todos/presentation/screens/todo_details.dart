@@ -13,7 +13,10 @@ import '../widgets/todo_details_form_title_field.dart';
 import '../widgets/todo_form_footer.dart';
 
 class TodoDetailsScreen extends StatefulWidget {
+  // The field is nullable because this screen is used for adding, updating, and deleting Todo objects, 
   final TodoModel? todoModel;
+  // This parameter is used to verify if the Todo object is associated with the signed-in user by checking the userId.
+  // It ensures that the Todo belongs to the currently authenticated user.
   final bool haveModifyPermission;
   const TodoDetailsScreen({super.key, this.todoModel , this.haveModifyPermission = false});
 
@@ -28,6 +31,7 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
 
   @override
   void initState() {
+    // fill the data from the object if it's not null
     if(widget.todoModel != null){
       _todoController.text = widget.todoModel!.todo;
       _isCompleted = widget.todoModel!.completed;
@@ -63,19 +67,21 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
                     SwitchListTile.adaptive(
                       title: const Text(AppStrings.completed),
                       value: _isCompleted, 
-                    
+                      // If this Todo object is not associated with the current user, the switch will be displayed as read-only,
+                      // preventing the user from making changes to it.
                       onChanged: widget.haveModifyPermission || widget.todoModel == null ? (value) => setState(() {
                         _isCompleted = value ;
                       }) : null,
                     ),
-          
+
+                    // The "Add" button is displayed on this screen as it is intended for creating a new Todo item.
                     if(widget.todoModel == null)
                     ElevatedButton(
                       onPressed: state is TodosLoading ?  null : _sendAddRequest,
                       child: const Text(AppStrings.add),
                     ),
                     
-                    
+                    // If the user is the owner of the Todo, we display the delete and update buttons.
                     if(widget.todoModel != null && widget.haveModifyPermission)
                     Column(
                       mainAxisSize: MainAxisSize.min,
@@ -95,7 +101,7 @@ class _TodoDetailsScreenState extends State<TodoDetailsScreen> {
                         ),
                       ],
                     ),
-                
+                    // Includes error handling, loading state, and a listener to display the success message.
                     const TodoFormFooter(),
                 
                   ],

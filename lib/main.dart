@@ -11,7 +11,7 @@ import 'home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // init service locator
   await initInjector();
   runApp(const MyApp());
 }
@@ -21,9 +21,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //bloc multi providers
     return MultiBlocProvider(
           providers: [
             BlocProvider<AuthenticationBloc>( create: (BuildContext context) => AuthenticationBloc(),),
+            // Fetch the todo list when the application starts
             BlocProvider<TodosBloc>( create: (BuildContext context) => getIt<TodosBloc>()..add(FetchTodoListEvent()),),
           ],
           child: MaterialApp(

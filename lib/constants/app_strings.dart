@@ -1,3 +1,5 @@
+// AppStrings holds constant strings for UI labels, messages, and validations, 
+// simplifying localization and preventing hard-coded values.
 abstract class AppStrings {
   static const String generalErrorMessage = 'Oops, something went wrong';
   static const String appTitle = 'Maids.cc Todos';
@@ -83,4 +85,6 @@ abstract class AppStrings {
 
   static const String todoListFilterAll = 'Show all';
   static const String todoListFilterMyList = 'My list';
+
+  static const String updatesSuccessfullyApplied = 'Changes applied successfully';
 }

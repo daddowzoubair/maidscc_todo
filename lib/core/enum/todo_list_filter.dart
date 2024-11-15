@@ -1,5 +1,6 @@
 import '../../constants/app_strings.dart';
 
+// TodoListFilter to use it in the todo list screen filter
 enum TodoListFilter {
   all,
   myList

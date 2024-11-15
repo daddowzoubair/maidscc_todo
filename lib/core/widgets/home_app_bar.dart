@@ -28,6 +28,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             return ListenableBuilder(
               listenable: tabController,
               builder: (context, child) => AppBar(
+                //
+                // show filter action button when the user navigate to todo list screen
+                //
                 actions: tabController.index == 1 ? [
                   IconButton(
                     onPressed: (){
@@ -43,6 +46,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   }, icon: const Icon(Icons.filter_alt_rounded , color: Colors.white,))
                 ] :[],
                 leadingWidth: AppDimensions.leadingWidth,
+                //
+                // show pagination widget when the user navigate to todo list screen
+                //
                 leading: tabController.index == 1 ? const TodoListPagination() : null,
                 title: Text(tabController.index == 0 ? AppStrings.profile : AppStrings.todoList),
               ),
@@ -60,7 +66,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               value: TodoListFilter.all.name,
               child: Text(TodoListFilter.all.title),
             ),
-
+            //
+            // Show this option only if the user is signed in
+            //
             if(state is UserInfoLoaded)
             PopupMenuItem<String>(
               value: TodoListFilter.myList.name,

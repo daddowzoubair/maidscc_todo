@@ -1,3 +1,4 @@
+// AppApiConfig holds API endpoints, parameters, and configuration values for the app's API interactions.
 abstract class AppApiConfig {
 
   static const baseUrl = 'https://dummyjson.com/';

@@ -36,10 +36,15 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // to show the keyboard above the content
       resizeToAvoidBottomInset: false,
+      // contains buttons to navigate between the profile screen and todo list screen
       bottomNavigationBar: HomeBottomNavigationBar(tabController: tabController),
+      // use the same AppBar for all pages to avoid using multiple Scaffold widgets
       appBar: HomeAppBar(tabController: tabController),
+      // add a new todo if the user is signed in
       floatingActionButton: HomeFloatingActionButton(tabController: tabController),
+      // Contains a TabBarView with AuthenticationScreen and TodoListScreen
       body: HomeTabBarView(tabController: tabController),
     );
   }

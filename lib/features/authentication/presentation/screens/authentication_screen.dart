@@ -22,9 +22,9 @@ class AuthenticationScreen extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // app logo
+                  // user image
                   AuthenticationLogo(userImage: state.userInfo.image,),
-                  // authentication form
+                  // user information
                   UserProfileInfo(userInfo: state.userInfo),
                 ],
               );
@@ -34,9 +34,9 @@ class AuthenticationScreen extends StatelessWidget {
                 children: [
                   // app logo
                   AuthenticationLogo(),
-                  // authentication form
+                  // authentication form (username , password and login button)
                   AuthenticationForm(),
-                  // form footer
+                  // form footer (loading and error message)
                   AuthenticationFormFooter(),
                 ],
               );

@@ -1,3 +1,4 @@
+// AppBlurRadius defines common blur radius values used for UI elements in the app.
 abstract class AppBlurRadius {
   static const zeroBlurRadius = 0.0;
   static const twoBlurRadius = 2.0;
