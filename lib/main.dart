@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'constants/app_strings.dart';
 import 'constants/app_themes.dart';
 import 'core/service_locator/service_locator.dart';
+import 'features/authentication/presentation/controller/authentication_bloc.dart';
+import 'features/todos/presentation/controller/todos_bloc.dart';
+import 'features/todos/presentation/controller/todos_event.dart';
 import 'home.dart';
 
 void main() async {
@@ -17,10 +21,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: AppStrings.appTitle,
-      theme: AppThemes.lightTheme(context),
-      home: const HomeScreen(),
+    return MultiBlocProvider(
+          providers: [
+            BlocProvider<AuthenticationBloc>( create: (BuildContext context) => AuthenticationBloc(),),
+            BlocProvider<TodosBloc>( create: (BuildContext context) => getIt<TodosBloc>()..add(FetchTodoListEvent()),),
+          ],
+          child: MaterialApp(
+        title: AppStrings.appTitle,
+        theme: AppThemes.lightTheme(context),
+        home:  const HomeScreen()
+        ),
+      
     );
   }
 }
