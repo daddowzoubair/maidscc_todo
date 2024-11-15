@@ -15,6 +15,10 @@ abstract class AppStrings {
   static const String passwordLabel = 'Password';
   static const String passwordValidation = 'Password is required';
 
+  static const String todoHint = 'Input your todo title here (Ex:Learn Flutter)';
+  static const String todoLabel = 'Todo';
+  static const String todoValidation = 'Todo is required';
+
   static const String login = 'Login';
   static const String error = 'Error';
 
@@ -57,4 +61,26 @@ abstract class AppStrings {
   static const String walletAddress = 'Wallet Address';
   static const String network = 'Network';
   static const String university = 'University';
+
+  static const String noTodos = 'No todos available.';
+  static const String todoDetails = 'Todo Details';
+  static const String update = 'Update';
+  static const String add = 'Add';
+  static const String delete = 'Delete';
+  static const String completed = 'Completed';
+
+  static const String yes = 'Yes';
+  static const String no = 'No';
+
+  static const String deleteTaskTitle = 'Delete task';
+  static const String deleteTaskMessage = 'Are you sure you want to delete the task?';
+
+  static const String updateTaskTitle = 'Update task';
+  static const String updateTaskMessage = 'Are you sure you want to update the task?';
+
+  static const String addTaskTitle = 'Add task';
+  static const String addTaskMessage = 'Are you sure you want to add the task?';
+
+  static const String todoListFilterAll = 'Show all';
+  static const String todoListFilterMyList = 'My list';
 }
