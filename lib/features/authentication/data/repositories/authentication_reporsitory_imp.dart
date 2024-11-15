@@ -23,7 +23,7 @@ class AuthenticationRepositoryImp extends AuthenticationRepository {
   Future<LoginModel> login({required String userName, required String password}) async {
     final response = await authenticationRemoteDataSource.login(userName: userName, password: password);
 
-    if(response.message.isEmpty && response.accessToken.isNotEmpty){
+    if(response.refreshToken.isNotEmpty && response.accessToken.isNotEmpty ){
       await authenticationLocalDataSource.setAccessToken(response.accessToken);
       await authenticationLocalDataSource.setRefreshToken(response.refreshToken);
     }
