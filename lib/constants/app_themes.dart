@@ -52,6 +52,7 @@ abstract class AppThemes {
         margin: const EdgeInsets.symmetric(horizontal: AppDimensions.eightDimension , vertical: AppDimensions.eightDimension)
       ),
       appBarTheme: AppBarTheme(
+        iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         toolbarHeight: AppDimensions.appbarHeight,
           color: AppColors.primaryColor,
