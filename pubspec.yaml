@@ -35,26 +35,25 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  flutter_launcher_icons: ^0.14.1
-  shared_preferences: ^2.3.3
-  dio: ^5.7.0
-  freezed: ^2.5.7
-  freezed_annotation: ^2.4.4
-  json_annotation: ^4.9.0
-  retrofit: ^4.4.1
-  retrofit_generator: ^9.1.4
-  build_runner: ^2.4.13
-  json_serializable: ^6.8.0
-  provider: ^6.1.2
-  flutter_svg: ^2.0.14
-  cached_network_image: ^3.4.1
-  injectable: ^2.5.0
-  get_it: ^8.0.2
-  injectable_generator: ^2.6.2
-  icons_launcher: ^3.0.0
-  equatable: ^2.0.5
-  flutter_bloc: ^8.1.6
-  mockito: ^5.4.4
+  shared_preferences: ^2.3.3 # Store and retrieve simple data locally, such as user preferences.
+  dio: ^5.7.0 # A powerful HTTP client for making network requests.
+  freezed: ^2.5.7 # Generate immutable classes and union types.
+  freezed_annotation: ^2.4.4 # Annotation library for Freezed, used for code generation.
+  json_annotation: ^4.9.0 # Supports JSON serialization and deserialization with annotations.
+  retrofit: ^4.4.1 # Generate REST API clients with Retrofit-like syntax.
+  retrofit_generator: ^9.1.4 # Code generator for Retrofit API clients.
+  build_runner: ^2.4.13 # Tool to generate code based on annotations, used with libraries like Retrofit and Freezed.
+  json_serializable: ^6.8.0 # Generate JSON serialization and deserialization logic automatically.
+  provider: ^6.1.2 # Manage state efficiently with dependency injection and reactive programming.
+  flutter_svg: ^2.0.14 # Render SVG images in Flutter applications.
+  cached_network_image: ^3.4.1 # Load and cache images efficiently from the network.
+  injectable: ^2.5.0 # Dependency injection framework with code generation.
+  get_it: ^8.0.2 # A simple service locator for dependency injection.
+  injectable_generator: ^2.6.2 # Code generator for Injectable to create dependency injection setup.
+  icons_launcher: ^3.0.0 # Generate app icons for different platforms.
+  equatable: ^2.0.5 # Simplify object comparison for classes.
+  flutter_bloc: ^8.1.6 # State management library implementing the BLoC pattern.
+  mockito: ^5.4.4 # Mocking library for unit testing.
 
 dev_dependencies:
   flutter_test:
