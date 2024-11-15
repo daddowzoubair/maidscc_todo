@@ -36,14 +36,14 @@ Designed by : `Zoubair Daddow`
   - *Pixel 9 Pro XL API VanillaIceCream* (Android)
 
 ### Flutter Environment
- [✓] Flutter (Channel stable, 3.24.4, on macOS 15.1 24B83 darwin-arm64, locale en-AE)
- [✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
- [✓] Xcode - develop for iOS and macOS (Xcode 16.1)
- [✓] Chrome - develop for the web
- [✓] Android Studio (version 2024.2)
- [✓] VS Code (version 1.95.2)
- [✓] Connected device (4 available)
- [✓] Network resources
+- [✓] Flutter (Channel stable, 3.24.4, on macOS 15.1 24B83 darwin-arm64, locale en-AE).
+- [✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0).
+- [✓] Xcode - develop for iOS and macOS (Xcode 16.1).
+- [✓] Chrome - develop for the web.
+- [✓] Android Studio (version 2024.2).
+- [✓] VS Code (version 1.95.2).
+- [✓] Connected device (4 available).
+- [✓] Network resources.
 
 ## Libraries Used
 
@@ -76,42 +76,7 @@ The project follows **Feature-First Architecture**, which provides the following
 ### Project Structure
 
 The directory structure is as follows:
-lib
-├── constants
-│   └── (Contains all application constants like AppStrings, AppDimensions, AppThemes, etc.)
-├── core
-│   ├── enum
-│   │   └── (Contains all enums used in the project)
-│   ├── models
-│   │   └── (Contains all general models)
-│   ├── network
-│   │   ├── clients
-│   │   │   └── (API clients)
-│   │   └── interceptors
-│   │       └── (Dio interceptors)
-│   ├── service_locator
-│   │   └── (GetIt registered classes)
-│   ├── utils
-│   │   └── (Utility functions used in the project)
-│   └── widgets
-│       └── (Shared widgets used across the app)
-├── features
-│   ├── authentication
-│   │   ├── data
-│   │   │   ├── data_sources
-│   │   │   ├── entities
-│   │   │   └── repositories
-│   │   ├── presentation
-│   │   │   ├── controller
-│   │   │   ├── screens
-│   │   │   └── widgets
-│   └── todos
-│       ├── data
-│       │   ├── data_sources
-│       │   ├── entities
-│       │   └── repositories
-│       ├── presentation
-│       │   ├── controller
-│       │   ├── screens
-│       │   └── widgets
+
+<img width="510" alt="Screenshot 2024-11-16 at 12 10 17 AM" src="https://github.com/user-attachments/assets/641fa5d7-a7f0-4a9b-8000-bf29b5f1e069">
+
 
